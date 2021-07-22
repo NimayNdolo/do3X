@@ -4,7 +4,7 @@ import './Todo.css';
 
 function Todo(props) {
     return (
-        <List>
+        <List className="todoList">
             <ListItem>
                 <ListItemText primary={props.text}/>
             </ListItem>
