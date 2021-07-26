@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     db.collection('todos').onSnapshot(snapshot => {
-      setTodos(snapshot.docs.map(doc => doc.data().todo))
+      setTodos(snapshot.docs.map(doc => ({ todo: doc.data().todo, id: doc.id})))
     })
   }, [input]);
 
@@ -36,7 +36,7 @@ function App() {
 
       <ul>
         {todos.map(todo => (
-        <Todo text={todo} />
+        <Todo todo={todo} />
         ))}
       </ul>
     </div>
